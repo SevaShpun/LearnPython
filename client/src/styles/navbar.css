@@ -1,0 +1,50 @@
+.cf:before, .cf:after {
+    content:" ";
+    display: table;
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
+.menu {
+    list-style:none;
+    margin: 10px auto;
+    width: 900px;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-family: 'Roboto', sans-serif;
+}
+.menu > a {
+    background: #34495e;
+    float: left;
+    position: relative;
+    padding-inline: 100px;
+    -webkit-transform: skewX(25deg);
+    text-decoration: none;
+}
+.menu li {
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+}
+.menu a:hover {
+    background: #e74c3c;
+}
+.menu > a > li {
+    -webkit-transform: skewX(-25deg);
+    padding: 1em 2em;
+}
+.menu > a:hover, .menu > a:hover a {
+    opacity: 1;
+    visibility: visible;
+}
+.menu > a:hover a:nth-child(even) {
+    -webkit-transform: skewX(25deg) translateX(15px);
+}
+.menu > a:hover a:nth-child(odd) {
+    -webkit-transform: skewX(-25deg) translateX(-15px);
+}
