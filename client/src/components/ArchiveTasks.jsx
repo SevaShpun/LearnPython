@@ -11,7 +11,7 @@ const ArchiveTasks = () => {
         'answer': 'Ответа пока нет'})
 
     async function getItemApi() {
-        const response = await axios.get("http://192.168.1.88:5000/archive/get_tasks")
+        const response = await axios.get("https://api.imsr.su/archive/get_tasks")
         setTasks(response.data.data)
     }
 
@@ -27,7 +27,7 @@ const ArchiveTasks = () => {
     }
 
     async function getAnswer(id){
-        const response = await axios.get("http://192.168.1.88:5000/get_answer?id=" + id)
+        const response = await axios.get("https://api.imsr.su/get_answer?id=" + id)
         setAnswer(response.data)
     }
 

@@ -12,7 +12,7 @@ const Tasks = () => {
     const [taskAnswer, setTaskAnswer] = useState('')
 
     async function getItemApi() {
-        const response = await axios.get("http://192.168.1.88:5000/main/get_tasks")
+        const response = await axios.get("https://api.imsr.su/main/get_tasks")
         setTasks(response.data.data)
     }
 
@@ -42,7 +42,7 @@ const Tasks = () => {
         data.append('answer', taskAnswer)
         data.append('task_id', id)
         const response = await axios({
-            url: "http://192.168.1.88:5000/add_answer",
+            url: "https://api.imsr.su/add_answer",
             method: 'POST',
             data: data,
             headers: {
