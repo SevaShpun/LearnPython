@@ -4,7 +4,7 @@ from aiogram import Bot, Dispatcher, executor
 from config import BOT_TOKEN, admin_id
 
 loop = asyncio.get_event_loop()
-bot = Bot(BOT_TOKEN, parse_mode="HTML")
+bot = Bot(BOT_TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage, loop=loop)
 

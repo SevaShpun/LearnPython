@@ -41,10 +41,10 @@ async def change_vis(message: Message):
 async def get_answers(message: Message):
     task_id = message.text.replace('/ans ', '')
     answers: list[Answers] = sql.get_tasks_by_id(task_id)
-    text = f"<b>Ответы на задачу #{task_id}</b>\n\n"
+    text = f"Ответы на задачу #{task_id}\n\n"
     await bot.send_message(message.from_user.id, text=text)
     for i in answers:
-        text = f'<b>Ответ: {i.id} {i.first_name} {i.last_name}</b>\n\n{i.answer}'
+        text = f'Ответ: {i.id} {i.first_name} {i.last_name}\n\n{i.answer}'
         try:
             await bot.send_message(message.from_user.id, text=text)
         except Exception as ex:
