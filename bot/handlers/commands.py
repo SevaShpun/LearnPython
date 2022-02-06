@@ -55,6 +55,6 @@ async def get_answers(message: Message):
 @dp.message_handler(lambda x: x.from_user.id == admin_id, commands=['best'])
 @dp.throttled(anti_flood, rate=5)
 async def change_vis(message: Message):
-    answer_id = message.text.replace('/best ', '').split()
+    answer_id = message.text.replace('/best ', '')
     sql.update_best_answer(answer_id)
     return await bot.send_message(message.from_user.id, text="Ну все ок получается.")
