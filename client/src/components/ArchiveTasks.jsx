@@ -4,11 +4,13 @@ import '../styles/tasks.css'
 
 
 const ArchiveTasks = () => {
-    const [tasks, setTasks] = useState([{'id': 0, 'answer_id': 0, 'date': '04/02/2022', 'title': 'Название',
-        'description': 'Описание', 'status': 2}])
+    const [tasks, setTasks] = useState([])
 
     const [answer, setAnswer] = useState({'id': 0, 'task_id': 0, 'first_name': 'Имя', 'last_name': 'Фамилия',
         'answer': 'Ответа пока нет'})
+
+    const [lastShow, setLastShow] = useState('')
+
 
     async function getItemApi() {
         const response = await axios.get("https://api.imsr.su/archive/get_tasks")
@@ -32,6 +34,11 @@ const ArchiveTasks = () => {
     }
 
     function showTask(id){
+        if (id === lastShow) {
+            setLastShow('')
+            return hiddenAll()
+        }
+        setLastShow(id)
         hiddenAll()
         console.log(answer)
         const a = document.getElementById('description ' + id)

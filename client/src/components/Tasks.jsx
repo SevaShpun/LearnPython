@@ -4,12 +4,13 @@ import '../styles/tasks.css'
 import {showToast} from "../tools/toast";
 
 const Tasks = () => {
-    const [tasks, setTasks] = useState([{'id': 0, 'answer_id': 0, 'date': '04/02/2022', 'title': 'Название',
-        'description': 'Описание', 'status': 1}])
+    const [tasks, setTasks] = useState([])
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [taskAnswer, setTaskAnswer] = useState('')
+
+    const [lastShow, setLastShow] = useState('')
 
     async function getItemApi() {
         const response = await axios.get("https://api.imsr.su/main/get_tasks")
@@ -29,6 +30,11 @@ const Tasks = () => {
     }
 
     function showTask(id){
+        if (id === lastShow) {
+            setLastShow('')
+            return hiddenAll()
+        }
+        setLastShow(id)
         hiddenAll()
         const a = document.getElementById('description ' + id)
         a.hidden = false
