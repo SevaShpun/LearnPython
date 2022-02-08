@@ -16,11 +16,13 @@ async def start_message(message: Message):
 async def add_new_task(message: Message):
     text = message.text.replace('/add ', '')
     text = text.split('[r]')
-    if not len(text) == 2:
+    if 3 < len(text) < 2:
         return await bot.send_message(message.from_user.id, text="Разделение это - [r]")
-    title = text[0]
-    task = text[1]
-    sql.add_new_task(title, task)
+    title, task = text[0], text[1]
+    if len(text) == 2:
+        sql.add_new_task(title, task)
+    elif len(text) == 3:
+        sql.add_new_task(title, task, text[2])
     return await bot.send_message(message.from_user.id, text="Ну все ок получается.")
 
 

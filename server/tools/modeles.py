@@ -9,21 +9,23 @@ class Tasks(db.Model):
     description = db.Column(db.Text, nullable=False)
     answer_id = db.Column(db.Integer, nullable=False)
     status = db.Column(db.Integer, nullable=False)
+    start = db.Column(db.Text, nullable=False)
 
-    def __init__(self, title: str, description: str):
+    def __init__(self, title: str, description: str, start: str):
         self.date = datetime.today().strftime("%d.%m.%Y")
         self.answer_id = 0
         self.status = 1
         self.title = title
         self.description = description
+        self.start = start
 
     def __repr__(self):
         return '<Tasks(id: %s, title: %s, description: %s)>' % (self.id, self.title, self.description)
 
     def get_json(self) -> dict:
         """Возвращает все данные в виде словаря"""
-        return {'id': self.id, 'date': self.date, 'title': self.title,
-                'description': self.description, 'answer_id': self.answer_id, 'status': self.status}
+        return {'id': self.id, 'date': self.date, 'title': self.title, 'description': self.description,
+                'answer_id': self.answer_id, 'status': self.status, 'start': self.start}
 
 
 class Answers(db.Model):

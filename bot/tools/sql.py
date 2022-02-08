@@ -27,9 +27,9 @@ def reconnect(func):
 
 
 @reconnect
-def add_new_task(title, task):
+def add_new_task(title, task, start=''):
     """Добавляем новый таск"""
-    session.add(Tasks(title, task))
+    session.add(Tasks(title, task, start))
     session.commit()
     return True
 
