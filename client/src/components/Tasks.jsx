@@ -39,6 +39,7 @@ const Tasks = () => {
         const a = document.getElementById('description ' + id)
         a.hidden = false
         setTaskAnswer('')
+        tasks.forEach((item) => {if (item.id == id){setTaskAnswer(item.start)}})
     }
 
     async function sendAnswer(id){
