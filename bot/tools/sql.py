@@ -51,6 +51,13 @@ def get_tasks_by_id(task_id) -> list[Answers]:
 
 
 @reconnect
+def get_tasks_by_last_name(last_name, number: int = 0) -> list[Answers]:
+    """Получаем массив ответов по фамилии"""
+    session.commit()
+    return session.query(Answers).filter_by(last_name=last_name).filter(Answers.task_id > number).all()
+
+
+@reconnect
 def update_best_answer(answer_id):
     """Изменяем видимость"""
     task_id = session.query(Answers).filter_by(id=answer_id).first().task_id

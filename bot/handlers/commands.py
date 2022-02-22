@@ -54,6 +54,28 @@ async def get_answers(message: Message):
     return await bot.send_message(message.from_user.id, text='Ответы закончились')
 
 
+@dp.message_handler(lambda x: x.from_user.id == admin_id, commands=['ans_l'])
+@dp.throttled(anti_flood, rate=5)
+async def get_answers_by_last_name(message: Message):
+    msg = message.text.replace('/ans_l ', '').split()
+
+    if len(msg) == 2:
+        answers: list[Answers] = sql.get_tasks_by_last_name(msg[0], int(msg[1]))
+    else:
+        answers: list[Answers] = sql.get_tasks_by_last_name(msg[0])
+
+    text = f"Ответы {answers[0].first_name} {answers[0].last_name}\n\n"
+    await bot.send_message(message.from_user.id, text=text)
+
+    for i in answers:
+        text = f'Ответ: {i.id} Задача: {i.task_id}\n\n{i.answer}'
+        try:
+            await bot.send_message(message.from_user.id, text=text)
+        except Exception as ex:
+            print(ex)
+    return await bot.send_message(message.from_user.id, text='Ответы закончились')
+
+
 @dp.message_handler(lambda x: x.from_user.id == admin_id, commands=['best'])
 @dp.throttled(anti_flood, rate=5)
 async def change_vis(message: Message):
