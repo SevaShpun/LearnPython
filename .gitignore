@@ -1,9 +1,13 @@
 server/config.py
 server/.idea
 server/__pycache__
+server/views/__pycache__
+server/tools/__pycache__
 bot/config.py
 bot/.idea
 bot/__pycache__
+bot/handlers/__pycache__
+bot/tools/__pycache__
 client/.idea
 # dependencies
 client/node_modules
