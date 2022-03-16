@@ -6,6 +6,7 @@ from tools import sql
 
 @app.route('/')
 def hello_world():
+    sql.db.create_all()
     return 'Hello, world!'
 
 
