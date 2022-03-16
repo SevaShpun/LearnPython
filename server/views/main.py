@@ -26,6 +26,23 @@ def add_answer():
     return response(data)
 
 
+@app.route('/add_request', methods=['POST'])
+def add_task_req():
+    title = request.form.get('title')
+    description = request.form.get('description')
+    start_code = request.form.get('start_code')
+    comment = request.form.get('comment')
+    data = {'status': False, 'warn': 'Заполните обязательные строки'}
+    if title and description:
+        try:
+            sql.add_new_task_request(title, description, start_code, comment)
+            data = {'status': True}
+        except Exception as ex:
+            print(ex)
+            data = {'status': False, 'warn': "Ответ не был добавлен в бд"}
+    return response(data)
+
+
 @app.route('/get_answer', methods=['GET'])
 def get_answer():
     answer_id = request.args.get('id')

@@ -4,6 +4,7 @@ import Main from "./pages/Main";
 import Archive from "./pages/Archive";
 import NavBar from "./components/NavBar";
 import {ToastContainer} from "react-toastify";
+import RequestTask from "./pages/RequestTask";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main/>}/>
           <Route path="/archive" element={<Archive/>}/>
+          <Route path="/request_task" element={<RequestTask/>}/>
         </Routes>
       </div>
     </BrowserRouter>

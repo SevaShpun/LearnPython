@@ -79,6 +79,19 @@
     background: #3ce745;
 }
 
+.Tasks-btn-req{
+    padding: 5px;
+    width: 100%;
+    font-size: 24px;
+    color: #FFFFFF;
+    background-color: #35485E;
+    border: none;
+}
+.Tasks-btn-req:hover{
+    cursor: pointer;
+    background: #3ce745;
+}
+
 .Task-answer-name {
     color: #0c8806;
     font-size: 20px;
@@ -95,4 +108,44 @@
     border: 3px solid #243a4d;
     white-space: pre-wrap;
     word-spacing: 5px;
+}
+.task_tmp_req{
+    display:grid;
+}
+
+.task-request-text {
+    margin: 10px 0;
+    padding: 5px 15px;
+    font-size: 16px;
+    background-color: #2b3644;
+    color: #FFFFFF;
+    resize:none;
+}
+.task-request-text::-webkit-scrollbar {
+    display: none;
+}
+
+.task-req-text {
+    padding-top: 15px;
+    color: #b4b4b4;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.task_tmp_req_two{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.task-t-teq{
+    padding: 10px;
+    color: #d5d5d5;
+    font-size: 16px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.task-t-t-teq{
+    padding: 10px;
+    color: #f3f3f3;
+    font-family: 'Exo 2', sans-serif;
 }

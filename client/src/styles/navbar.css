@@ -20,7 +20,7 @@
     background: #34495e;
     float: left;
     position: relative;
-    padding-inline: 100px;
+    padding-inline: 10px;
     -webkit-transform: skewX(25deg);
     text-decoration: none;
 }

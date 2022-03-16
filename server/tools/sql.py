@@ -1,5 +1,5 @@
 from app import db
-from tools.modeles import Answers, Tasks
+from tools.modeles import Answers, Tasks, TaskRequest
 
 
 def get_main_tasks() -> list[dict]:
@@ -20,6 +20,14 @@ def add_new_answer(first_name: str, last_name: str, answer: str, task_id: int) -
     db.session.add(answer)
     db.session.commit()
     return answer
+
+
+def add_new_task_request(title: str, description: str, start_code: str, comment: str) -> TaskRequest:
+    """Новый запрос на задание"""
+    task = TaskRequest(title, description, start_code, comment)
+    db.session.add(task)
+    db.session.commit()
+    return task
 
 
 def get_answer_by_id(answer_id: int) -> dict:

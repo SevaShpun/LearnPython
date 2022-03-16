@@ -49,3 +49,21 @@ class Answers(db.Model):
         return {'id': self.id, 'task_id': self.task_id, 'first_name': self.first_name,
                 'last_name': self.last_name, 'answer': self.answer}
 
+
+class TaskRequest(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.Text, nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    start = db.Column(db.Text, nullable=False)
+    comment = db.Column(db.Text, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+
+    def __init__(self, title: str, description: str, start: str, comment: str):
+        self.status = 1
+        self.title = title
+        self.description = description
+        self.start = start
+        self.comment = comment
+
+    def __repr__(self):
+        return '<RequestTask(id: %s, title: %s, description: %s)>' % (self.id, self.title, self.description)
