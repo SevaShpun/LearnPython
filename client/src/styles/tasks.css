@@ -111,6 +111,8 @@
 }
 .task_tmp_req{
     display:grid;
+    border: 6px solid #35485E;
+    padding: 10px 15px;
 }
 
 .task-request-text {
